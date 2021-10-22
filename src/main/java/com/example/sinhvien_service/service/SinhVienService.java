@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import io.github.resilience4j.retry.annotation.Retry;
+
 @Service
 public class SinhVienService {
 
@@ -20,6 +22,7 @@ public class SinhVienService {
         return sinhVienRepository.save(sinhVien);
     }
 
+    @Retry(name = "basic")
     public ResponseTemplateVO getSinhVienWithKhoa(Long sinhVienId){
         ResponseTemplateVO vo = new ResponseTemplateVO();
         SinhVien sinhVien = sinhVienRepository.getById(sinhVienId);

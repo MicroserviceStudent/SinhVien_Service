@@ -16,3 +16,10 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     instance:
       hostname: localhost
+
+resilience4j:
+  retry:
+    instances:
+      basic:
+        maxRetryAttemps: 5
+        waitDuration: 3s

@@ -29,7 +29,12 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compileOnly('org.springframework.boot:spring-boot-starter-actuator')
+    compileOnly('org.springframework.boot:spring-boot-starter-aop')
+    implementation("io.github.resilience4j:resilience4j-retry:1.7.1")
+
 }
 
 dependencyManagement {
